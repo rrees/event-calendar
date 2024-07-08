@@ -1,0 +1,15 @@
+<!doctype HTML>
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		{% include 'fragments/bootstrap.html' %}
+    <body>
+		{% block navbar %}
+		{% endblock %}
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
