@@ -1,17 +1,17 @@
 FROM python:3.11.1 AS builder
 
 ENV PYTHONUNBUFFERED=1 \
-    PYTHONDONTWRITEBYTECODE=1
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIPENV_VENV_IN_PROJECT=1 \
+    PIPENV_CUSTOM_VENV_NAME=.venv
 
 WORKDIR /app
 COPY . .
 
-ENV PIPENV_VENV_IN_PROJECT=1 \
-    PIPENV_CUSTOM_VENV_NAME=.venv
 RUN pip install pipenv
 RUN pipenv install
 
-FROM python:3.11.1-slim
+FROM python:3.11-slim-bookworm
 
 WORKDIR /app
 COPY --from=builder /app .
