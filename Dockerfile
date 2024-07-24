@@ -1,4 +1,6 @@
-FROM python:3.11.1 AS builder
+ARG PYTHON_VERSION=3.11.9
+
+FROM python:${PYTHON_VERSION} AS builder
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
@@ -11,9 +13,11 @@ COPY . .
 RUN pip install pipenv
 RUN pipenv install
 
-FROM python:3.11-slim-bookworm
+FROM python:${PYTHON_VERSION}-slim-bookworm
 
 ENV PYTHONUNBUFFERED=1
+
+RUN apt update && apt upgrade 
 
 WORKDIR /app
 COPY --from=builder /app .
