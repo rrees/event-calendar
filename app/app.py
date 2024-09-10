@@ -4,6 +4,7 @@ import logging
 import flask
 
 from . import handlers
+from . import middleware
 from . import redis_utils
 
 from .auth_password.routes import auth_routes
@@ -23,10 +24,12 @@ routes = [
     ("/", "index", handlers.pages.front_page, ["GET"]),
 ]
 
-routes = routes # + auth_routes
+routes = routes  # + auth_routes
 
 for path, endpoint, handler, methods in routes:
     app.add_url_rule(path, endpoint, handler, methods=methods)
+
+app.before_request(middleware.require_authorisation)
 
 
 @app.errorhandler(500)
