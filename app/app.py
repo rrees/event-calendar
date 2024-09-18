@@ -22,6 +22,7 @@ app.secret_key = os.environ.get("SECRET_KEY", os.urandom(24))
 
 routes = [
     ("/", "index", handlers.pages.front_page, ["GET"]),
+    ("/home", "home", handlers.pages.home_page, ["GET"]),
 ]
 
 routes = routes  # + auth_routes

@@ -1,0 +1,16 @@
+{% extends 'default.html' %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block title %}Events{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+	<h1>Events</h1>
+
+	{% for event in events %}
+	<p>{{event}}</p>
+	{% endfor %}
+</div>
+{% endblock %}
