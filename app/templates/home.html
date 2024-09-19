@@ -9,8 +9,18 @@
 <div class="container-fluid">
 	<h1>Events</h1>
 
+	<table>
 	{% for event in events %}
-	<p>{{event}}</p>
+	<tr>
+		<td>{{event.start_date}}</td>
+		<td>{{event.end_date}}</td>
+		<td>
+			{% if event.url %}<a href="{{event.url}}" target="_blank">{% endif %}
+			{{event.name}}
+			{% if event.url %}</a>{% endif %}
+		</td>
+	</tr>
 	{% endfor %}
+	</table>
 </div>
 {% endblock %}

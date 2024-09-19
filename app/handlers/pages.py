@@ -1,6 +1,7 @@
 import flask
 
 from app.repositories import events as events_repository
+from app import models
 
 
 def front_page():
@@ -8,5 +9,5 @@ def front_page():
 
 
 def home_page():
-    events_repository.all()
+    events_repository.all(model=models.Event)
     return flask.render_template("home.html", events=events_repository.all())
