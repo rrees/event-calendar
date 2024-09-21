@@ -17,7 +17,7 @@ FROM python:${PYTHON_VERSION}-slim-bookworm
 
 ENV PYTHONUNBUFFERED=1
 
-RUN apt update && apt upgrade 
+RUN apt update && apt upgrade -y
 
 WORKDIR /app
 COPY --from=builder /app .

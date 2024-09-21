@@ -17,3 +17,9 @@ all = """
 SELECT *
 FROM events
 ORDER BY end_date, start_date"""
+
+future = """
+SELECT *
+FROM events
+WHERE end_date >= CURRENT_DATE
+ORDER BY end_date, start_date"""

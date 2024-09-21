@@ -31,3 +31,12 @@ def all(model=None):
             cursor.execute(sql_events.all)
 
             return cursor.fetchall()
+
+
+def future(model=None):
+    with connect() as conn:
+        row_factory = class_row(model) if model else dict_row
+        with conn.cursor(row_factory=row_factory) as cursor:
+            cursor.execute(sql_events.future)
+
+            return cursor.fetchall()
