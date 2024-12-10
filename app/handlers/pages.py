@@ -11,3 +11,7 @@ def front_page():
 def home_page():
     events_repository.future(model=models.Event)
     return flask.render_template("home.html", events=events_repository.all())
+
+
+def add_event():
+    return flask.render_template("add-event.html")

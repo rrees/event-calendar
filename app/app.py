@@ -3,7 +3,6 @@ import logging
 
 import flask
 
-from . import handlers
 from . import middleware
 from . import redis_utils
 
