@@ -6,8 +6,7 @@ import flask
 from . import middleware
 from . import redis_utils
 
-from .routes import page_routes
-from .auth_password.routes import auth_routes
+from .routes import form_routes, page_routes
 
 
 ENV = os.environ.get("ENV", "PROD")
@@ -22,7 +21,7 @@ app.secret_key = os.environ.get("SECRET_KEY", os.urandom(24))
 
 routes = []
 
-routes = routes + page_routes  # + auth_routes
+routes = routes + page_routes + form_routes
 
 for path, endpoint, handler, methods in routes:
     app.add_url_rule(path, endpoint, handler, methods=methods)
