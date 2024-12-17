@@ -1,4 +1,4 @@
 from . import pages
-from . import forms
+from .forms import forms
 
 __all__ = ["pages", "forms"]
