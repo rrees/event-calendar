@@ -6,18 +6,27 @@
 <div class="container">
 	<h1>Events</h1>
 
-	<table>
-	{% for event in events %}
-	<tr>
-		<td>{{event.start_date}}</td>
-		<td>{{event.end_date}}</td>
-		<td>
-			{% if event.url %}<a href="{{event.url}}" target="_blank">{% endif %}
-			{{event.name}}
-			{% if event.url %}</a>{% endif %}
-		</td>
-	</tr>
-	{% endfor %}
-	</table>
+	<div class="stack event-stack">
+		{% for event in events %}
+		<div class="stack">
+			<div class="event-details stack">
+				<div class="dates-row cluster space-between">
+					<time>{{event.start_date}}</time>
+					<time>{{event.end_date}}</time>
+				</div>
+				<div>
+					{% if event.url %}<a href="{{event.url}}" target="_blank">{% endif %}
+						{{event.name}}
+					{% if event.url %}</a>{% endif %}
+				</div>
+			</div>
+			{% if event.comment %}
+			<div class="comment">
+				{{event.comment}}
+			</div>
+			{% endif %}
+		</div>
+		{% endfor %}
+	</div>
 </div>
 {% endblock %}

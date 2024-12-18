@@ -6,6 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	{% include 'fragments/bootstrap.html' %}
+
+	<link rel="stylesheet" href="{{url_for('static', filename='base.css')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='custom.css')}}" />
 	<body>
 		<div class="container">
 			{% block navbar %}

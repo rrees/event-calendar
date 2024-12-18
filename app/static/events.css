@@ -1,0 +1,34 @@
+
+.event-stack {
+
+	.event-details {
+		flex-direction: column-reverse;
+	}
+
+	.dates-row {
+		gap: calc(3 * var(--base-unit-size));
+	}
+
+	@media (width >= 80ch) {
+		gap: calc(4 * var(--base-unit-size));
+
+		.event-details {
+			flex-direction: row;
+			gap: calc(4 * var(--base-unit-size));
+		}
+
+		.dates-row {
+			gap: calc(2 * var(--base-unit-size));
+		}
+	}
+
+	@media (width >= 50ex) {
+		.dates-row {
+			justify-content: flex-start;
+		}
+	}
+
+	.comment {
+		font-size: 80%;
+	}
+}

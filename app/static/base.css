@@ -1,0 +1,25 @@
+:root {
+	--base-unit-size: 4px;
+}
+.cluster {
+	display: flex;
+	gap: var(--base-unit-size);
+}
+
+.stack {
+	display: flex;
+	flex-direction: column;
+	gap: var(--base-unit-size);
+}
+
+.reverse-stack {
+	flex-direction: column-reverse;
+}
+
+.space-between {
+	justify-content: space-between;
+}
+
+.gap-2 {
+	gap: calc(2 * var(--base-unit-size));
+}
