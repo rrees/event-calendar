@@ -1,8 +1,15 @@
 
 .event-stack {
 
+	.event:not(:last-of-type) {
+		border-bottom: 1px solid lightgray;
+		margin-block-end: var(--base-unit-size);
+		padding-block-end: var(--base-unit-size);
+	}
+
 	.event-details {
 		flex-direction: column-reverse;
+
 	}
 
 	.dates-row {
@@ -10,7 +17,11 @@
 	}
 
 	@media (width >= 80ch) {
-		gap: calc(4 * var(--base-unit-size));
+		gap: calc(6 * var(--base-unit-size));
+
+		.event {
+			border-bottom: none;
+		}
 
 		.event-details {
 			flex-direction: row;
