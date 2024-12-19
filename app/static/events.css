@@ -19,8 +19,10 @@
 	@media (width >= 80ch) {
 		gap: calc(6 * var(--base-unit-size));
 
-		.event {
+		.event:not(:last-of-type) {
 			border-bottom: none;
+			margin-block-end: 0;
+			padding-block-end: 0;
 		}
 
 		.event-details {
